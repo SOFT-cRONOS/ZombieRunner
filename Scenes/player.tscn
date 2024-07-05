@@ -65,6 +65,8 @@ animations = [{
 size = Vector2(392.5, 922.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+position = Vector2(-1, 0)
 scale = Vector2(0.4, 0.4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

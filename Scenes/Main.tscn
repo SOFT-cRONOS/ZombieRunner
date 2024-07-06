@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://iycux1gw10d6"]
+[gd_scene load_steps=6 format=3 uid="uid://iycux1gw10d6"]
 
+[ext_resource type="Script" path="res://Scenes/Main.gd" id="1_hhmfl"]
 [ext_resource type="PackedScene" uid="uid://bdvlkv2l1ye2" path="res://Scenes/background.tscn" id="1_to23o"]
 [ext_resource type="PackedScene" uid="uid://c7vkwdvf8met2" path="res://Scenes/player.tscn" id="2_c5ydl"]
 [ext_resource type="PackedScene" uid="uid://lolyk3iefjw4" path="res://Scenes/map.tscn" id="2_eo0rg"]
+[ext_resource type="PackedScene" uid="uid://coyt7tk48vglv" path="res://Scenes/hud.tscn" id="5_gkfae"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_hhmfl")
 
 [node name="Background" parent="." instance=ExtResource("1_to23o")]
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="Map" parent="." instance=ExtResource("2_eo0rg")]
+position = Vector2(5, 272)
+scale = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_c5ydl")]
-position = Vector2(233, 678)
+[node name="Player" parent="." instance=ExtResource("2_c5ydl")]
+position = Vector2(102, 357)
+scale = Vector2(0.2, 0.2)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(959, 540)
+position = Vector2(483, 271)
+
+[node name="HUD" parent="." instance=ExtResource("5_gkfae")]

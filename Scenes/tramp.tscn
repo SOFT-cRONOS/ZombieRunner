@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsd6hfv8fdle1"]
+
+[ext_resource type="Texture2D" uid="uid://0c2k6uryliup" path="res://Assets/Objects/tramp.png" id="2_pkhk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82rmi"]
+size = Vector2(68, 34)
+
+[node name="Tramp" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pkhk3")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 21)
+shape = SubResource("RectangleShape2D_82rmi")

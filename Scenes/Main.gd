@@ -2,9 +2,10 @@ extends Node
 
 #preload enemies or object
 var arrow = preload("res://Scenes/arrow.tscn")
+var tramp = preload("res://Scenes/tramp.tscn")
 #si hay mas armar array para aleatoreidad
 #var obstacle_types := ["objetos"]
-var obstacle_types := [arrow]
+var obstacle_types := [arrow, tramp  ]
 var obstacles : Array 
 #game setters
 const PLAYER_START_POS := Vector2i(102, 357)
@@ -45,6 +46,7 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$Map.position = Vector2i(5,272)
 	
+	obstacles.clear()
 	get_tree().paused= false #retoma la ejecucion
 	score = 0
 	
@@ -101,14 +103,16 @@ func generate_obs():
 		var obs_height = obs.get_node("Sprite2D").texture.get_height()
 		var obs_scale = obs.get_node("Sprite2D").scale
 		var obs_x : int = screen_size.x + score + 100
-		var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 20
+		var index_floor = 75
+		if obs.name == "Tramp":
+			index_floor = 0
+		var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - index_floor
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
 		
 func add_obs(obs, x , y):
 	obs.position = Vector2i(x, y)
 	obs.body_entered.connect(hit_obs) #mira la señal de colicion del objeto
-	
 	add_child(obs)
 	obstacles.append(obs)
 

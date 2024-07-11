@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7vkwdvf8met2"]
+[gd_scene load_steps=8 format=3 uid="uid://c7vkwdvf8met2"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_t51c8"]
 [ext_resource type="Texture2D" uid="uid://cc7tyndu0rqs6" path="res://Assets/Player/idle.png" id="2_6655y"]
+[ext_resource type="Texture2D" uid="uid://dvuw7lxolguql" path="res://Assets/Player/run_1.png" id="3_1smik"]
+[ext_resource type="Texture2D" uid="uid://hv5kvbqc33qa" path="res://Assets/Player/run_3.png" id="4_uq8jr"]
+[ext_resource type="Texture2D" uid="uid://1uenhytrmgx1" path="res://Assets/Player/run_4.png" id="5_3fakj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s5vyx"]
 animations = [{
@@ -12,10 +15,27 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1smik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uq8jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3fakj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uq8jr")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m43ij"]
-size = Vector2(80.0001, 200)
+size = Vector2(57.5001, 195)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
@@ -27,9 +47,10 @@ script = ExtResource("1_t51c8")
 texture_filter = 2
 sprite_frames = SubResource("SpriteFrames_s5vyx")
 animation = &"Idle"
+frame_progress = 0.608915
 
 [node name="RunColl" type="CollisionShape2D" parent="."]
-position = Vector2(2.49999, 8.94069e-06)
+position = Vector2(-8.75, -2.49994)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_m43ij")
 

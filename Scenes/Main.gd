@@ -15,7 +15,7 @@ const CAM_START_POS := Vector2i(483, 271)
 
 #game variables
 var speed: float
-const START_SPEED: float = 10.0
+const START_SPEED: float = 5.0
 const MAX_SPEED : int = 25
 var GAME_RUNNING: bool = false
 var SPEED_MODIFIER: int = 5000 #valor donde la velocidad aumenta
@@ -28,11 +28,15 @@ var score: int
 const SCORE_MODIFIER : int = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	score = 0
-	screen_size = get_window().size
+	screen_size = Vector2i(960,540) #get_window().size
 	ground_height = $Map.get_node("Sprite2D").texture.get_height()
 	new_game()
 	#pass # Replace with function body.
+	
+	var btn_reset = $GameOver.get_node("Button")
+	btn_reset.pressed.connect(new_game)
 
 func new_game():
 	#reset positions objects
@@ -41,6 +45,9 @@ func new_game():
 	$Camera2D.position = CAM_START_POS
 	$Map.position = Vector2i(5,272)
 	
+	get_tree().paused= false #retoma la ejecucion
+	score = 0
+	
 	#Delete all object
 	for obs in obstacles:
 		obs.queue_free() 
@@ -48,7 +55,8 @@ func new_game():
 		
 	#reset hud
 	show_score()
-	$HUD.get_node("GameOverLabel").show()
+	$HUD.get_node("InitGameLabel").show()
+	$GameOver.hide()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -79,7 +87,7 @@ func _process(delta):
 	else:
 		if Input.is_action_pressed("ui_accept"):
 			GAME_RUNNING = true
-			$HUD.get_node("GameOverLabel").hide()
+			$HUD.get_node("InitGameLabel").hide()
 		
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "Puntaje: " + str(score / SCORE_MODIFIER)
@@ -112,11 +120,10 @@ func hit_obs(body):
 func game_over():
 	get_tree().paused = true #detiene la ejeccion
 	GAME_RUNNING = false
-	$HUD.get_node("GameOverLabel").show()
-	new_game()
+	$GameOver.show()
+	
 	
 func remove_obs(obs):
 	obs.queue_free() 
 	obstacles.erase(obs)
-	
 	

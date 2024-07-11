@@ -10,15 +10,10 @@ config_version=5
 
 [application]
 
-config/name="ZombieRunner"
+config/name="ZombieRunnerGodot"
 run/main_scene="res://Scenes/Main.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
-run/max_fps=60
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Global="*res://Scripts/global.gd"
 
 [display]
 
@@ -26,24 +21,9 @@ window/size/viewport_width=960
 window/size/viewport_height=540
 window/size/resizable=false
 window/stretch/mode="viewport"
-
-[layer_names]
-
-2d_render/layer_1="Player"
-2d_render/layer_2="Enemy"
-2d_render/layer_3="Environment"
-2d_render/layer_4="Object"
-2d_render/layer_5="Trap"
+window/stretch/scale_mode="integer"
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=0
-lights_and_shadows/positional_shadow/soft_shadow_filter_quality=0
-anti_aliasing/screen_space_roughness_limiter/enabled=false
-lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=0
-lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=0

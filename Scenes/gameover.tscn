@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://nwpux2vocvir"]
+
+[ext_resource type="FontFile" uid="uid://bwebrokmdibej" path="res://Assets/Font/KodeMono-Bold.ttf" id="1_stysc"]
+
+[node name="Node" type="CanvasLayer"]
+
+[node name="GameOverLabel" type="Label" parent="."]
+offset_left = 336.0
+offset_top = 200.0
+offset_right = 584.0
+offset_bottom = 271.0
+theme_override_fonts/font = ExtResource("1_stysc")
+theme_override_font_sizes/font_size = 50
+text = "GAMEOVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 368.0
+offset_top = 280.0
+offset_right = 551.0
+offset_bottom = 319.0
+text = "Reintentar"

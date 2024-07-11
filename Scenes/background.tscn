@@ -6,37 +6,31 @@
 [ext_resource type="Texture2D" uid="uid://cw4nwg5h7h04x" path="res://Assets/Background/BackgroundC.png" id="4_i51dg"]
 
 [node name="Background" type="ParallaxBackground"]
-scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
 
 [node name="Background" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ha4qq")
 centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 position = Vector2(0.5, 0)
-scale = Vector2(0.5, 0.5)
 motion_scale = Vector2(0.6, 1)
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(960, 0)
 
 [node name="BackgroundA" type="Sprite2D" parent="ParallaxLayer"]
 texture = ExtResource("2_xfio0")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-scale = Vector2(0.5, 0.5)
 motion_scale = Vector2(0.7, 1)
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(960, 0)
 
 [node name="BackgroundB" type="Sprite2D" parent="ParallaxLayer3"]
 texture = ExtResource("3_bvxh4")
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-scale = Vector2(0.5, 0.5)
 motion_scale = Vector2(0.9, 1)
-motion_mirroring = Vector2(1920, 0)
+motion_mirroring = Vector2(960, 0)
 
 [node name="BackgroundC" type="Sprite2D" parent="ParallaxLayer2"]
 texture = ExtResource("4_i51dg")
